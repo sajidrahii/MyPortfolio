@@ -448,12 +448,47 @@ header .logo img{
     opacity: 1;
 }
 
+#contact .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container{
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "input-name  input-email input-mobile"
+    "input-subject input-message input-message"
+    "input-reset input-submit .";
+
+    gap: 1vw;
+}
+
+.form-container input, textarea{
+    font-family: Tahoma;
+    padding: 1vw;
+    height: 2vw;
+    border: 1px solid rgb(255, 0, 0, 0.5);
+    border-radius: 1vw;
+    transition: 0.3s;
+    background: transparent;
+
+    color: var(--text);
+}
+
+.form-container input:hover, .form-container textarea:hover{
+    scale: 1.05;
+}
+
 @media (max-width: 768px){
 
     .header{
-        background-color: red;
+        background: transparent;
         flex-direction: column;
         gap: 1vw;
+        border-radius: 2vw;
     }
 
     .btn{
@@ -463,9 +498,13 @@ header .logo img{
         gap: 2vw;
     }
 
+    button{
+        height: 3vw;
+        width: 10vw;
+    }
+
 
     .container{
-        background: blue;
         flex-direction: column;
         margin: 18vw 0 0 0;
     }
@@ -512,5 +551,10 @@ header .logo img{
     .about-grid-item{
         opacity: 1;
         transform: translateX(0);
+    }
+
+    .form-container{
+        display: flex;
+        flex-direction: column;
     }
 }
