@@ -1,0 +1,163 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+:root{
+    --bg-dark: hsl(0 0% 0%);
+    --bg: hsl(0 0% 5%);
+    --bg-light: hsl(0 0% 10%);
+    --text: hsl(0 0% 95%);
+    --btn-text: hsl(0, 100%, 30%);
+    --secondary-text: hsl(0 0% 70%);
+
+    --border: hsl(0 0% 30%);
+
+    --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+    --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+
+    --highlight: hsl(0 0% 60%);
+    --shadow: -3px 2px 2px hsla(0, 0%, 0%, 0.7), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
+
+    --text-grad: linear-gradient(#995c5c, #363d4c, #f2f2f2);
+
+    --bg-image: url(assets/BG-dark.png);
+    --wrapper-dark: url(assets/wrapper-dark.jpg);
+
+    --btn-grad: linear-gradient(hsl(0, 0%, 90%), hsl(0, 0%, 10%));
+    --btn-grad-inv: linear-gradient(hsl(0, 0%, 10%), hsl(0, 0%, 90%));
+}
+
+body.light{
+    --bg-dark: hsl(0 0% 90%);
+    --bg: hsl(0 0% 95%);
+    --bg-light: hsl(0 0% 100%);
+    --text: hsl(0 0% 5%);
+    --secondary-text: hsl(0 0% 30%);
+    --border: hsl(0 0% 30%);
+    --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+    --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+    --highlight: hsl(0 0% 100%);
+
+    --text-grad: linear-gradient(#995c5c, #363d4c, #f2f2f2);
+
+    --bg-image: url(assets/BG-light.png);
+    --wrapper-dark: url(assets/wrapper-light.jpg);
+
+    --btn-grad: linear-gradient(hsl(0, 0%, 90%), hsl(0, 0%, 10%));
+
+    --btn-grad-inv: linear-gradient(hsl(0, 0%, 10%), hsl(0, 0%, 90%));
+}
+
+#gallery{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner{
+    margin-top: 2vw;
+    width: 80%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    z-index: 3;
+
+    animation: AutoRun 30s linear infinite;
+}
+
+@keyframes AutoRun{
+    from{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    } to{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .card{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY( calc( (var(--position) - 1) * (360 / var(--quantity) ) * 1deg ) )
+        translateZ(550px);
+}
+
+.banner .slider .card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.3);
+    transition: 0.3s ease-in-out;
+}
+
+.banner .slider .card img:hover{
+    scale: 1.1;
+    filter: saturate(1);
+}
+
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1440px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.banner .content h1{
+    font-family: 'ICA Rubrik';
+    font-size: 16em;
+    line-height: 1em;
+    color: var(--text);
+
+    position: relative;
+}
+
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 3;
+    -webkit-text-stroke: 2px var(--highlight);
+    color: transparent;
+}
+
+.banner .content .author{
+    font-family: Poppins;
+    text-align: right;
+    max-width: 200px;
+    color: var(--secondary-text);
+}
+
+.banner .content h2{
+    font-size: 3em;
+}
+
+.banner .content .model{
+    background-image: url(../assets/Photo.png);
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+}

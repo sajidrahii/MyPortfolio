@@ -187,11 +187,13 @@ header .logo img{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border: 1px solid var(--border);
-    background-image: var(--wrapper-dark);
-    background-size: cover;
+
+    border: 1px solid rgb(255, 0, 0, 0.1);
     border-radius: 1vw;
-    box-shadow: var(--shadow);
+    background: rgb(0, 0, 0, 0.2);
+    /* background-image: var(--wrapper-dark); */
+    /* background-size: cover; */
+    /* box-shadow: var(--shadow); */
 
 }
 
