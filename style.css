@@ -6,6 +6,8 @@
     --btn-text: hsl(0, 100%, 30%);
     --secondary-text: hsl(0 0% 70%);
 
+    --brand-color: #cc2929;
+
     --border: hsl(0 0% 30%);
 
     --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
@@ -124,16 +126,19 @@ button:active{
     transform: scale(0.9);
 }
 
-button:hover{
-    background-image: var(--btn-grad-inv);
-}
-
 .cv-btn{
     width: 6vw;
 }
 
 #mode-btn{
     background-image: none;
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+}
+
+#mode-btn:hover{
+    scale: 1.1;
+    background-image: var(--btn-grad-inv);
 }
 
 header{
@@ -144,13 +149,15 @@ header{
 
 .header{
     position: fixed;
-    width: 90%;
-    padding: 1vw;
+    width: 90vw;
+    margin-top: 2vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 10;
     backdrop-filter: blur(20px);
+
+    border-radius: 1rem;
 }
 
 .header .navbar{
@@ -161,13 +168,15 @@ header{
 header .navbar a{
     color: var(--text);
     text-decoration: none;
-    font-size: 1.1vw;
+    font-size: 1rem;
     font-family: Tahoma;
+
+    transition: 0.3s all ease-in-out;
 }
 
 header .navbar a:hover{
-    scale: 0.9;
-    color: var(--secondary-text);
+    scale: 1.1;
+    color: var(--brand-color);
 }
 
 header .logo img{
@@ -191,10 +200,6 @@ header .logo img{
     border: 1px solid rgb(255, 0, 0, 0.1);
     border-radius: 1vw;
     background: rgb(0, 0, 0, 0.2);
-    /* background-image: var(--wrapper-dark); */
-    /* background-size: cover; */
-    /* box-shadow: var(--shadow); */
-
 }
 
 .wrapper .left{
@@ -385,12 +390,16 @@ header .logo img{
 
 /* Skills section */
 #skills{
-    margin-bottom: 10vw;
+    margin-bottom: 10vh;
+    /* background: red; */
 }
 
 #skills .wrapper{
     display: flex;
     flex-direction: column;
+    height: 70vh;
+
+    /* background: green; */
 }
 
 
@@ -407,7 +416,7 @@ header .logo img{
     color: transparent;
 }
 
-#skills .left{
+#skills .left, #skills .right{
     text-align: center;
 }
 
@@ -415,7 +424,7 @@ header .logo img{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2vw;
+    gap: 3vw;
 }
 
 #skills .wrapper .skill-icons img{
@@ -442,7 +451,7 @@ header .logo img{
     opacity: 0;
     scale: 0;
 
-     transition: 1s ease-out, transform 1s ease-out;
+    transition: 1s ease-out;
 }
 
 #skills .wrapper .skill-icons.animated{
@@ -456,7 +465,7 @@ header .logo img{
     justify-content: center;
 }
 
-.form-container{
+/* .form-container{
     display: grid;
     grid-template-columns: 20vw 20vw 20vw;
     grid-template-rows: 1fr 1fr 1fr;
@@ -482,7 +491,7 @@ header .logo img{
 
 .form-container input:hover, .form-container textarea:hover{
     scale: 1.05;
-}
+} */
 
 @media (max-width: 768px){
 
